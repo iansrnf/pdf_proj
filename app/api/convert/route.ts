@@ -66,9 +66,10 @@ export async function POST(request: Request) {
   });
 
   const output = await Packer.toBuffer(doc);
+  const body = new Uint8Array(output);
   const outputName = `${sanitizeFileName(file.name)}.docx`;
 
-  return new Response(output, {
+  return new Response(body, {
     headers: {
       "Content-Type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
       "Content-Disposition": `attachment; filename="${outputName}"`,

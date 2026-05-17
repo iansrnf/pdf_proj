@@ -65,7 +65,7 @@ export default function Home() {
     }
 
     setState("converting");
-    setMessage("Reading PDF text and building the Word file...");
+    setMessage("Reading PDF layout, fonts, and text styles...");
 
     const formData = new FormData();
     formData.append("file", file);
@@ -94,7 +94,7 @@ export default function Home() {
       URL.revokeObjectURL(url);
 
       setState("done");
-      setMessage("Your editable Word document is ready.");
+      setMessage("Your styled Word document is ready.");
     } catch (error) {
       setState("error");
       setMessage(error instanceof Error ? error.message : "Conversion failed.");
@@ -108,7 +108,7 @@ export default function Home() {
           <p className="eyebrow">Editable document converter</p>
           <h1>PDF to Word</h1>
           <p className="lede">
-            Upload a PDF and get a `.docx` file with selectable, editable text.
+            Upload a PDF and get a `.docx` file with editable text and preserved styling.
           </p>
         </div>
 
